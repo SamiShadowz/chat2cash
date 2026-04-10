@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Welcome to Chat2Cash Engine | Aether Systems</title>
+<meta name="description" content="Your payment is confirmed. Complete your onboarding to get started with the Chat2Cash Engine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0a0a0f;--bg-card:#12121a;--purple:#8b5cf6;--lavender:#c084fc;--gold:#d4a84b;
+--text:#f0f0f5;--text-muted:#a0a0b0;--font-body:'Inter',sans-serif;--font-head:'Space Grotesk',sans-serif;
+}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3{font-family:var(--font-head);font-weight:700;line-height:1.2}
+a{color:var(--lavender);text-decoration:none}
+a:hover{color:var(--purple)}
+
+body::before{
+content:'';position:fixed;inset:0;z-index:-1;
+background:radial-gradient(1.5px 1.5px at 20% 30%,rgba(139,92,246,.15),transparent),
+radial-gradient(1px 1px at 70% 60%,rgba(192,132,252,.1),transparent),
+radial-gradient(1.5px 1.5px at 50% 80%,rgba(212,168,75,.08),transparent);
+background-size:300px 300px,250px 250px,350px 350px;
+animation:bgDrift 60s linear infinite;
+}
+@keyframes bgDrift{to{background-position:300px 300px,250px -250px,-350px 350px}}
+
+/* NAV */
+nav{display:flex;justify-content:center;align-items:center;padding:1.2rem 2rem;background:rgba(10,10,15,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.brand{font-family:var(--font-head);color:var(--gold);font-size:1.2rem;font-weight:700}
+
+/* MAIN */
+main{flex:1;max-width:900px;margin:0 auto;padding:4rem 1.5rem;text-align:center}
+
+/* CHECKMARK */
+.checkmark-wrap{margin:0 auto 2rem;width:80px;height:80px;position:relative}
+.checkmark-circle{width:80px;height:80px;border-radius:50%;background:rgba(139,92,246,.15);display:flex;align-items:center;justify-content:center;animation:checkPulse 2s ease-in-out infinite}
+.checkmark-circle svg{width:40px;height:40px}
+@keyframes checkPulse{0%,100%{box-shadow:0 0 0 0 rgba(139,92,246,.3)}50%{box-shadow:0 0 0 20px rgba(139,92,246,0)}}
+
+.confirm-heading{font-size:clamp(1.6rem,4vw,2.5rem);margin-bottom:1rem;background:linear-gradient(135deg,var(--text),var(--lavender));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.confirm-sub{color:var(--text-muted);font-size:1.05rem;margin-bottom:3rem}
+
+/* NEXT STEPS CARDS */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:2.5rem;text-align:left}
+.step-card{background:var(--bg-card);border:1px solid rgba(139,92,246,.15);border-radius:14px;padding:2rem;transition:border-color .3s,box-shadow .3s}
+.step-card:hover{border-color:rgba(139,92,246,.4);box-shadow:0 0 20px rgba(139,92,246,.08)}
+.step-icon{font-size:2rem;margin-bottom:1rem}
+.step-card h3{margin-bottom:.7rem;font-size:1.15rem}
+.step-card p{color:var(--text-muted);font-size:.95rem;margin-bottom:1.2rem}
+.step-btn{display:inline-block;background:linear-gradient(135deg,var(--purple),var(--lavender));color:#fff;padding:.7rem 1.6rem;border-radius:8px;font-weight:600;font-size:.95rem;transition:box-shadow .3s,transform .2s;cursor:pointer;border:none;font-family:var(--font-body)}
+.step-btn:hover{box-shadow:0 0 20px rgba(139,92,246,.4);transform:translateY(-2px)}
+
+.below-steps{color:var(--text-muted);font-size:.95rem;margin-bottom:.5rem}
+.below-steps strong{color:var(--text)}
+.contact{color:var(--text-muted);font-size:.9rem;margin-top:.5rem}
+.contact a{color:var(--lavender)}
+
+/* FOOTER */
+footer{text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(139,92,246,.1);margin-top:auto}
+footer .brand-footer{color:var(--gold);font-family:var(--font-head);margin-bottom:.6rem;font-size:.95rem}
+footer .links{margin-bottom:.6rem}
+footer .links a{color:var(--text-muted);margin:0 .8rem;font-size:.85rem}
+footer .disclaimer{color:var(--text-muted);font-size:.75rem;max-width:600px;margin:0 auto;opacity:.7}
+
+@media(max-width:600px){
+main{padding:3rem 1.2rem}
+.steps-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">🪬 Aether Systems</span>
+</nav>
+
+<main>
+  <!-- Animated Checkmark -->
+  <div class="checkmark-wrap">
+    <div class="checkmark-circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+  </div>
+
+  <h1 class="confirm-heading">You're In. Welcome to the Chat2Cash Engine. 🪬</h1>
+  <p class="confirm-sub">Your payment is confirmed. Check your email for a receipt from PayPal.</p>
+
+  <!-- Next Steps -->
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-icon">📅</div>
+      <h3>Step 1: Book Your Onboarding Call</h3>
+      <p>Pick a time that works for you. This is a 1-on-1 call where we set up your Chat2Cash Engine together.</p>
+      <a href="#booking" class="step-btn">Book My Call</a>
+    </div>
+    <div class="step-card">
+      <div class="step-icon">📋</div>
+      <h3>Step 2: Complete Your Setup Form</h3>
+      <p>Tell us about your content style, your fans, and how you chat. This helps us train the AI on YOUR voice before our call.</p>
+      <a href="#setup-form" class="step-btn">Fill Out the Form</a>
+    </div>
+  </div>
+
+  <p class="below-steps"><strong>Complete both steps before our call</strong> so we can hit the ground running.</p>
+  <p class="contact">Questions? Email <a href="mailto:support@elevatedwealth.org">support@elevatedwealth.org</a></p>
+</main>
+
+<footer>
+  <p class="brand-footer">🪬 Aether Systems © 2026</p>
+  <div class="links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+  </div>
+  <p class="disclaimer">The Chat2Cash Engine is a product of Aether Systems. Not affiliated with OnlyFans, Fansly, or any platform.</p>
+</footer>
+
+</body>
+</html>

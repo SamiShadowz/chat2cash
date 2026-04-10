@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chat2Cash Engine — AI Chat Automation for Creators | Aether Systems</title>
+<meta name="description" content="Stop spending hours in DMs. The Chat2Cash Engine is an AI chat assistant trained on your voice that handles fan messages, sends PPV, and upsells — automatically.">
+<meta property="og:title" content="Chat2Cash Engine — AI Chat Automation for Creators | Aether Systems">
+<meta property="og:description" content="Stop spending hours in DMs. The Chat2Cash Engine is an AI chat assistant trained on your voice that handles fan messages, sends PPV, and upsells — automatically.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://www.paypal.com/sdk/js?client-id=ATyT_9NoZ74IKbyzPltY9BjitSxu4p9qHfRCdDw4iFF74TcPpSTmQy29YK9Nca3nmHwUnTkJ798_zcbf&currency=USD" defer></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0a0a0f;--bg-card:#12121a;--purple:#8b5cf6;--lavender:#c084fc;--gold:#d4a84b;
+--text:#f0f0f5;--text-muted:#a0a0b0;--font-body:'Inter',sans-serif;--font-head:'Space Grotesk',sans-serif;
+}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;line-height:1.2}
+a{color:var(--lavender);text-decoration:none}
+a:hover{color:var(--purple)}
+img{max-width:100%;display:block}
+
+/* Animated background dots */
+body::before{
+content:'';position:fixed;inset:0;z-index:-1;
+background:radial-gradient(1.5px 1.5px at 20% 30%,rgba(139,92,246,.15),transparent),
+radial-gradient(1px 1px at 70% 60%,rgba(192,132,252,.1),transparent),
+radial-gradient(1.5px 1.5px at 50% 80%,rgba(212,168,75,.08),transparent);
+background-size:300px 300px,250px 250px,350px 350px;
+animation:bgDrift 60s linear infinite;
+}
+@keyframes bgDrift{to{background-position:300px 300px,250px -250px,-350px 350px}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;transition:background .3s,backdrop-filter .3s}
+nav.scrolled{background:rgba(10,10,15,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.brand{font-family:var(--font-head);color:var(--gold);font-size:1.2rem;font-weight:700}
+.nav-cta{background:linear-gradient(135deg,var(--purple),var(--lavender));color:#fff;border:none;padding:.6rem 1.4rem;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:box-shadow .3s}
+.nav-cta:hover{box-shadow:0 0 20px rgba(139,92,246,.5)}
+
+/* SECTIONS */
+section{max-width:1100px;margin:0 auto;padding:6rem 1.5rem}
+.section-divider{height:1px;max-width:600px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--purple),transparent);opacity:.3}
+
+/* HERO */
+#hero{text-align:center;padding-top:8rem}
+#hero h1{font-size:clamp(1.8rem,5vw,3.2rem);margin-bottom:1.2rem;background:linear-gradient(135deg,var(--text),var(--lavender));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#hero .sub{color:var(--text-muted);font-size:clamp(1rem,2.5vw,1.2rem);max-width:700px;margin:0 auto 2rem}
+.hero-cta{display:inline-block;background:linear-gradient(135deg,var(--purple),var(--gold));color:#fff;padding:.9rem 2rem;border-radius:10px;font-weight:600;font-size:1.05rem;cursor:pointer;border:none;font-family:var(--font-body);transition:transform .2s,box-shadow .3s;animation:ctaPulse 3s ease-in-out infinite}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(139,92,246,.4)}
+@keyframes ctaPulse{0%,100%{box-shadow:0 0 10px rgba(139,92,246,.2)}50%{box-shadow:0 0 25px rgba(139,92,246,.35)}}
+.social-proof{color:var(--text-muted);font-style:italic;margin-top:1.5rem;font-size:.95rem}
+
+/* PROBLEM */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
+.card{background:var(--bg-card);border:1px solid rgba(139,92,246,.15);border-radius:14px;padding:2rem;transition:border-color .3s,box-shadow .3s}
+.card:hover{border-color:rgba(139,92,246,.4);box-shadow:0 0 20px rgba(139,92,246,.08)}
+.card h3{color:var(--lavender);margin-bottom:.7rem;font-size:1.15rem}
+.card p{color:var(--text-muted);font-size:.95rem}
+.section-title{text-align:center;font-size:clamp(1.5rem,4vw,2.4rem);margin-bottom:.5rem}
+.section-subtitle{text-align:center;color:var(--text-muted);max-width:700px;margin:0 auto 2rem;font-size:1rem}
+
+/* SOLUTION */
+#solution .section-title{text-shadow:0 0 40px rgba(139,92,246,.3)}
+.solution-text{text-align:center;color:var(--text-muted);max-width:750px;margin:0 auto 2.5rem;font-size:1.05rem}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+.feature{text-align:center;padding:1.5rem}
+.feature .icon{font-size:2.2rem;margin-bottom:.8rem}
+.feature h3{margin-bottom:.5rem;font-size:1.1rem}
+.feature p{color:var(--text-muted);font-size:.93rem}
+
+/* DEMO */
+#demo{text-align:center}
+.video-placeholder{max-width:800px;margin:2rem auto;aspect-ratio:16/9;background:var(--bg-card);border:1px solid rgba(139,92,246,.2);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;cursor:pointer}
+.play-icon{width:60px;height:60px;border-radius:50%;background:rgba(139,92,246,.2);display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.video-placeholder p{color:var(--text-muted);font-size:.95rem}
+.demo-caption{color:var(--text-muted);margin-top:1rem;font-style:italic}
+
+/* TRUST */
+#trust{text-align:center}
+.trust-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin:2rem 0}
+.trust-badge{font-size:1rem;color:var(--text-muted)}
+.trust-badge span{font-size:1.3rem;display:block;margin-bottom:.3rem}
+.testimonial{max-width:600px;margin:2rem auto 0;background:var(--bg-card);border-left:3px solid var(--purple);border-radius:0 12px 12px 0;padding:1.5rem 2rem;color:var(--text-muted);font-style:italic;text-align:left}
+
+/* PRICING */
+#pricing{text-align:center}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin:2rem 0;max-width:750px;margin-left:auto;margin-right:auto}
+.price-card{background:var(--bg-card);border-radius:16px;padding:2.5rem 2rem;position:relative;transition:transform .3s,box-shadow .3s}
+.price-card:hover{transform:translateY(-4px)}
+.price-card.ghost{border:2px solid var(--purple)}
+.price-card.featured{border:2px solid var(--purple);box-shadow:0 0 30px rgba(139,92,246,.15)}
+.best-badge{position:absolute;top:-12px;right:20px;background:var(--gold);color:var(--bg);font-size:.75rem;font-weight:700;padding:.3rem .8rem;border-radius:20px;font-family:var(--font-head)}
+.price-card h3{margin-bottom:1rem;font-size:1.2rem}
+.price{font-size:2.5rem;font-family:var(--font-head);color:var(--gold);font-weight:700}
+.price-sub{color:var(--text-muted);font-size:.9rem;margin:.5rem 0}
+.price-total{color:var(--text-muted);font-size:.85rem}
+.price-note{color:var(--text-muted);font-size:.8rem;font-style:italic;margin-top:.5rem}
+.strikethrough{text-decoration:line-through;color:var(--text-muted);font-size:1.1rem;margin-right:.3rem}
+.paypal-btn-container{margin-top:1.5rem;min-height:55px}
+.shared-features{max-width:500px;margin:2rem auto;text-align:left}
+.shared-features li{list-style:none;padding:.4rem 0;color:var(--text-muted);font-size:.95rem}
+.shared-features li::before{content:'✦ ';color:var(--gold)}
+.pricing-note{color:var(--text-muted);font-size:.9rem;font-style:italic;margin-top:1.5rem}
+
+/* FAQ */
+#faq{max-width:750px;margin:0 auto;padding:6rem 1.5rem}
+.faq-item{border-bottom:1px solid rgba(139,92,246,.1);overflow:hidden}
+.faq-q{width:100%;background:none;border:none;color:var(--text);font-family:var(--font-body);font-size:1rem;font-weight:600;text-align:left;padding:1.2rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q:hover{color:var(--lavender)}
+.faq-q::after{content:'+';font-size:1.4rem;transition:transform .3s;color:var(--purple);flex-shrink:0;margin-left:1rem}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 0}
+.faq-item.open .faq-a{max-height:300px;padding:0 0 1.2rem}
+.faq-a p{color:var(--text-muted);font-size:.95rem;line-height:1.6}
+
+/* FINAL CTA */
+#final-cta{text-align:center;padding:5rem 1.5rem}
+#final-cta h2{font-size:clamp(1.6rem,4vw,2.5rem);margin-bottom:1rem}
+#final-cta .sub{color:var(--text-muted);max-width:600px;margin:0 auto 2rem;font-size:1.05rem}
+.cta-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-bottom:1.5rem}
+.btn-ghost{border:2px solid var(--purple);color:var(--purple);background:none;padding:.8rem 1.8rem;border-radius:10px;font-weight:600;font-size:1rem;cursor:pointer;font-family:var(--font-body);transition:all .3s}
+.btn-ghost:hover{background:var(--purple);color:#fff;box-shadow:0 0 20px rgba(139,92,246,.3)}
+.btn-solid{background:linear-gradient(135deg,var(--purple),var(--gold));color:#fff;border:none;padding:.8rem 1.8rem;border-radius:10px;font-weight:600;font-size:1rem;cursor:pointer;font-family:var(--font-body);transition:all .3s}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 0 25px rgba(139,92,246,.4)}
+.contact-info{color:var(--text-muted);font-size:.9rem;margin-top:1rem}
+.contact-info a{color:var(--lavender)}
+
+/* FOOTER */
+footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(139,92,246,.1)}
+footer .brand-footer{color:var(--gold);font-family:var(--font-head);margin-bottom:.8rem}
+footer .links{margin-bottom:.8rem}
+footer .links a{color:var(--text-muted);margin:0 .8rem;font-size:.85rem}
+footer .disclaimer{color:var(--text-muted);font-size:.75rem;max-width:600px;margin:0 auto;opacity:.7}
+
+/* MOBILE */
+@media(max-width:600px){
+section{padding:4rem 1.2rem}
+#hero{padding-top:6rem}
+nav{padding:.8rem 1.2rem}
+.brand{font-size:1rem}
+.pricing-grid{grid-template-columns:1fr}
+.trust-badges{flex-direction:column;gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <span class="brand">🪬 Aether Systems</span>
+  <button class="nav-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Get Started</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <h1>Your DMs Are Your Biggest Moneymaker — What If They Ran Themselves?</h1>
+  <p class="sub">The Chat2Cash Engine is an AI-powered chat assistant trained on YOUR voice. It talks to your fans, sends PPV, and closes upsells — so you can stop being chained to your phone and start scaling.</p>
+  <button class="hero-cta" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">See How It Works ↓</button>
+  <p class="social-proof">Built for creators who are tired of choosing between chatting and creating.</p>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <h2 class="section-title">Sound Familiar?</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>💬 Chatting is eating your whole day</h3>
+      <p>You're spending 4+ hours a day in DMs because it's your #1 revenue source. But every hour chatting is an hour you're NOT creating content, promoting, or resting.</p>
+    </div>
+    <div class="card">
+      <h3>🔗 You can't just stop replying</h3>
+      <p>Fans who don't get responses stop spending. You know if you disappear from DMs for even a day, your income drops. It feels like you're trapped.</p>
+    </div>
+    <div class="card">
+      <h3>🎲 Hiring a chatter is a gamble</h3>
+      <p>You've heard the horror stories — agencies that ghost you, chatters who sound nothing like you, or worse, ones that creep out your fans. You need help, but trusting someone with YOUR voice and YOUR subscribers feels risky.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SOLUTION -->
+<section id="solution">
+  <h2 class="section-title">Meet The Chat2Cash Engine</h2>
+  <p class="solution-text">We don't replace you — we clone your voice. The Chat2Cash Engine is an AI chat assistant custom-trained on YOUR tone, YOUR slang, YOUR upsell style. It handles fan messages, sends PPV at the right moments, and keeps subscribers engaged — sounding exactly like you. You stay in control. We just give you your time back.</p>
+  <div class="feature-grid">
+    <div class="feature">
+      <div class="icon">🎙️</div>
+      <h3>Trained On Your Voice</h3>
+      <p>We study your past messages, your tone, your personality. The AI doesn't sound like a robot — it sounds like YOU on your best day.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">💰</div>
+      <h3>Smart PPV &amp; Upsells</h3>
+      <p>Automatically identifies buying signals and sends the right content at the right time. No more leaving money on the table because you were asleep or busy.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🎛️</div>
+      <h3>You Stay In Control</h3>
+      <p>Review mode lets you approve messages before they send. Or go full autopilot once you trust it. Your account, your rules.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- DEMO -->
+<section id="demo">
+  <h2 class="section-title">Watch the 90-Second Demo</h2>
+  <div class="video-placeholder" id="loom-embed">
+    <div class="play-icon">▶</div>
+    <p>Demo Video Coming Soon</p>
+  </div>
+  <p class="demo-caption">This is what your DMs could look like — on autopilot.</p>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- TRUST -->
+<section id="trust">
+  <h2 class="section-title">Why Creators Trust Us</h2>
+  <div class="trust-badges">
+    <div class="trust-badge"><span>🔒</span>Your login credentials are never stored</div>
+    <div class="trust-badge"><span>🪬</span>Founded by a creator who gets it</div>
+    <div class="trust-badge"><span>📊</span>Average 40% increase in PPV revenue</div>
+  </div>
+  <div class="testimonial">
+    <p>"[Testimonial from beta creator coming soon]"</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PRICING -->
+<section id="pricing">
+  <h2 class="section-title">Beta Pricing — Lock It In Before We Raise Rates</h2>
+  <p class="section-subtitle">You're joining our founding beta group. Hands-on onboarding, direct access to the founder, and locked-in pricing for life.</p>
+  <div class="pricing-grid">
+    <!-- Deposit -->
+    <div class="price-card ghost">
+      <h3>Reserve Your Spot</h3>
+      <div class="price">$97</div>
+      <p class="price-sub">+ $500 due at your onboarding call</p>
+      <p class="price-total">$597 total setup</p>
+      <p class="price-note">Non-refundable deposit. Secures your spot in the beta.</p>
+      <div class="paypal-btn-container" id="paypal-deposit"></div>
+    </div>
+    <!-- Full -->
+    <div class="price-card featured">
+      <span class="best-badge">BEST VALUE</span>
+      <h3>Pay In Full</h3>
+      <div class="price">$497</div>
+      <p class="price-sub">Save $100 vs. deposit option</p>
+      <p class="price-total"><span class="strikethrough">$597</span> → <strong style="color:var(--gold)">$497</strong></p>
+      <div class="paypal-btn-container" id="paypal-full"></div>
+    </div>
+  </div>
+  <ul class="shared-features">
+    <li>Custom AI voice training</li>
+    <li>PPV &amp; upsell automation</li>
+    <li>Message review dashboard</li>
+    <li>1-on-1 onboarding call</li>
+    <li>Priority support via DM</li>
+  </ul>
+  <p class="pricing-note">$300/mo starts 30 days after your first payment. Cancel anytime. No contracts.</p>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- FAQ -->
+<section id="faq">
+  <h2 class="section-title" style="margin-bottom:2rem">Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">Will it actually sound like me?</button>
+    <div class="faq-a"><p>Yes. We train the AI on your real messages, your slang, your emoji style, everything. Fans won't know the difference.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">Is this against OnlyFans/Fansly TOS?</button>
+    <div class="faq-a"><p>We work within platform guidelines. The AI drafts messages that you can review and approve. Think of it as a smart assistant, not a bot that takes over your account.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">What if I don't like it?</button>
+    <div class="faq-a"><p>You're in full control. You can pause, adjust, or cancel anytime. No contracts, no lock-in.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">How long until it's set up?</button>
+    <div class="faq-a"><p>Most creators are live within 7–10 days of signing up. We handle everything during onboarding.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">Do you need my login?</button>
+    <div class="faq-a"><p>No. We never ask for your platform login credentials. We work through secure, creator-approved access methods.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">What's the difference between the two pricing options?</button>
+    <div class="faq-a"><p>The $97 deposit secures your spot — you pay the remaining $500 at your onboarding call ($597 total). Or pay $497 upfront and save $100. Either way, the $300/mo subscription starts 30 days after your first payment.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">Is the deposit refundable?</button>
+    <div class="faq-a"><p>The $97 deposit is non-refundable — it covers your spot in the beta and the initial setup work. The monthly subscription can be cancelled anytime.</p></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- FINAL CTA -->
+<section id="final-cta">
+  <h2>Stop Trading Hours for DMs</h2>
+  <p class="sub">Your fans are waiting. Your content is waiting. Your life is waiting. Let the Chat2Cash Engine handle the grind.</p>
+  <div class="cta-buttons">
+    <button class="btn-ghost" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Lock In My Spot — $97</button>
+    <button class="btn-solid" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Get Started — $497</button>
+  </div>
+  <p class="contact-info">Questions? Email <a href="mailto:support@elevatedwealth.org">support@elevatedwealth.org</a></p>
+  <p class="contact-info"><a href="#booking">📅 Book a free intro call</a></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="brand-footer">🪬 Aether Systems © 2026</p>
+  <div class="links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+  </div>
+  <p class="disclaimer">The Chat2Cash Engine is a product of Aether Systems. Not affiliated with OnlyFans, Fansly, or any platform.</p>
+</footer>
+
+<script>
+// Sticky nav scroll effect
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+    btn.setAttribute('aria-expanded',!wasOpen);
+  });
+});
+
+// PayPal Buttons
+function initPayPal(){
+  if(typeof paypal==='undefined'){setTimeout(initPayPal,500);return;}
+
+  // $97 Deposit
+  paypal.Buttons({
+    style:{layout:'vertical',color:'black',shape:'pill',label:'pay',height:45},
+    createOrder:function(data,actions){
+      return actions.order.create({
+        purchase_units:[{description:'Chat2Cash Engine — Beta Deposit',amount:{value:'97.00',currency_code:'USD'}}]
+      });
+    },
+    onApprove:function(data,actions){
+      return actions.order.capture().then(function(){
+        window.location.href='thankyou.html?plan=deposit';
+      });
+    },
+    onError:function(err){console.error('PayPal Error:',err);alert('Payment error. Please try again or contact support@elevatedwealth.org');}
+  }).render('#paypal-deposit');
+
+  // $497 Full
+  paypal.Buttons({
+    style:{layout:'vertical',color:'gold',shape:'pill',label:'pay',height:45},
+    createOrder:function(data,actions){
+      return actions.order.create({
+        purchase_units:[{description:'Chat2Cash Engine — Full Setup (Save $100)',amount:{value:'497.00',currency_code:'USD'}}]
+      });
+    },
+    onApprove:function(data,actions){
+      return actions.order.capture().then(function(){
+        window.location.href='thankyou.html?plan=full';
+      });
+    },
+    onError:function(err){console.error('PayPal Error:',err);alert('Payment error. Please try again or contact support@elevatedwealth.org');}
+  }).render('#paypal-full');
+}
+initPayPal();
+</script>
+</body>
+</html>

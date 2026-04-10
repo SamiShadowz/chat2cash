@@ -7,25 +7,25 @@
 <meta name="description" content="Tell us about your content style so we can train the Chat2Cash Engine on your voice.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
---bg:#0a0a0f;--bg-card:#12121a;--purple:#8b5cf6;--lavender:#c084fc;--gold:#d4a84b;
---text:#f0f0f5;--text-muted:#a0a0b0;--font-body:'Inter',sans-serif;--font-head:'Space Grotesk',sans-serif;
---input-bg:#1a1a28;--input-border:rgba(139,92,246,.2);--input-focus:rgba(139,92,246,.5);
+--bg:#0B0B0F;--bg-card:#12101a;--purple:#6A00FF;--pink:#FF2D75;--lavender:#ff6fa3;--gold:#d4a84b;
+--text:#f0f0f5;--text-muted:#b0a0b8;--font-body:'DM Sans',sans-serif;--font-head:'Sora',sans-serif;
+--input-bg:#1a1a28;--input-border:rgba(255,45,117,.2);--input-focus:rgba(255,45,117,.5);
 }
 html{font-size:16px}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
 h1,h2,h3{font-family:var(--font-head);font-weight:700;line-height:1.2}
-a{color:var(--lavender);text-decoration:none}
-a:hover{color:var(--purple)}
+a{color:var(--pink);text-decoration:none}
+a:hover{color:var(--lavender)}
 
 body::before{
 content:'';position:fixed;inset:0;z-index:-1;
-background:radial-gradient(1.5px 1.5px at 20% 30%,rgba(139,92,246,.15),transparent),
-radial-gradient(1px 1px at 70% 60%,rgba(192,132,252,.1),transparent),
-radial-gradient(1.5px 1.5px at 50% 80%,rgba(212,168,75,.08),transparent);
+background:radial-gradient(1.5px 1.5px at 20% 30%,rgba(255,45,117,.12),transparent),
+radial-gradient(1px 1px at 70% 60%,rgba(106,0,255,.1),transparent),
+radial-gradient(1.5px 1.5px at 50% 80%,rgba(255,45,117,.06),transparent);
 background-size:300px 300px,250px 250px,350px 350px;
 animation:bgDrift 60s linear infinite;
 }
@@ -33,17 +33,19 @@ animation:bgDrift 60s linear infinite;
 
 /* NAV */
 nav{display:flex;justify-content:center;align-items:center;padding:1.2rem 2rem;background:rgba(10,10,15,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-.brand{font-family:var(--font-head);color:var(--gold);font-size:1.2rem;font-weight:700}
+.brand{display:flex;align-items:center;gap:.5rem}
+.brand img{height:36px;width:auto}
+.brand-text{font-family:var(--font-head);color:var(--pink);font-size:1rem;font-weight:700}
 
 /* MAIN */
 main{flex:1;max-width:700px;margin:0 auto;padding:3rem 1.5rem;width:100%}
 .form-header{text-align:center;margin-bottom:2.5rem}
-.form-header h1{font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:.8rem;background:linear-gradient(135deg,var(--text),var(--lavender));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.form-header h1{font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:.8rem;background:linear-gradient(135deg,var(--text),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .form-header p{color:var(--text-muted);font-size:1rem}
 
 /* FORM */
-.form-section{background:var(--bg-card);border:1px solid rgba(139,92,246,.12);border-radius:16px;padding:2rem;margin-bottom:1.5rem}
-.form-section h2{font-size:1.15rem;color:var(--lavender);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+.form-section{background:var(--bg-card);border:1px solid rgba(255,45,117,.12);border-radius:16px;padding:2rem;margin-bottom:1.5rem}
+.form-section h2{font-size:1.15rem;color:var(--pink);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
 .form-section h2 span{font-size:1.3rem}
 
 .field{margin-bottom:1.3rem}
@@ -57,7 +59,7 @@ width:100%;background:var(--input-bg);border:1px solid var(--input-border);borde
 padding:.75rem 1rem;color:var(--text);font-family:var(--font-body);font-size:.95rem;
 transition:border-color .3s,box-shadow .3s;outline:none;
 }
-input:focus,select:focus,textarea:focus{border-color:var(--input-focus);box-shadow:0 0 12px rgba(139,92,246,.15)}
+input:focus,select:focus,textarea:focus{border-color:var(--input-focus);box-shadow:0 0 12px rgba(255,45,117,.15)}
 input::placeholder,textarea::placeholder{color:rgba(160,160,176,.5)}
 select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a0a0b0' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
 select option{background:var(--bg-card);color:var(--text)}
@@ -68,22 +70,22 @@ textarea{resize:vertical;min-height:100px}
 .radio-option{flex:1;min-width:120px}
 .radio-option input[type="radio"]{display:none}
 .radio-option label{display:flex;align-items:center;justify-content:center;padding:.65rem 1rem;border:1px solid var(--input-border);border-radius:8px;cursor:pointer;font-size:.9rem;transition:all .2s;text-align:center;background:var(--input-bg)}
-.radio-option input:checked+label{border-color:var(--purple);background:rgba(139,92,246,.1);color:var(--lavender)}
-.radio-option label:hover{border-color:rgba(139,92,246,.35)}
+.radio-option input:checked+label{border-color:var(--pink);background:rgba(255,45,117,.1);color:var(--pink)}
+.radio-option label:hover{border-color:rgba(255,45,117,.35)}
 
 /* SUBMIT */
 .submit-wrap{text-align:center;margin-top:2rem}
-.submit-btn{background:linear-gradient(135deg,var(--purple),var(--gold));color:#fff;border:none;padding:1rem 3rem;border-radius:12px;font-weight:700;font-size:1.1rem;cursor:pointer;font-family:var(--font-head);transition:transform .2s,box-shadow .3s;letter-spacing:.5px}
-.submit-btn:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(139,92,246,.4)}
+.submit-btn{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;border:none;padding:1rem 3rem;border-radius:12px;font-weight:700;font-size:1.1rem;cursor:pointer;font-family:var(--font-head);transition:transform .2s,box-shadow .3s;letter-spacing:.5px}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(255,45,117,.4)}
 .submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
 .submit-note{color:var(--text-muted);font-size:.85rem;margin-top:.8rem}
 
 /* SUCCESS STATE */
 .success-message{display:none;text-align:center;padding:4rem 2rem}
 .success-message.show{display:block}
-.success-icon{width:70px;height:70px;border-radius:50%;background:rgba(139,92,246,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;animation:checkPulse 2s ease-in-out infinite}
+.success-icon{width:70px;height:70px;border-radius:50%;background:rgba(255,45,117,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;animation:checkPulse 2s ease-in-out infinite}
 .success-icon svg{width:35px;height:35px}
-@keyframes checkPulse{0%,100%{box-shadow:0 0 0 0 rgba(139,92,246,.3)}50%{box-shadow:0 0 0 15px rgba(139,92,246,0)}}
+@keyframes checkPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,45,117,.3)}50%{box-shadow:0 0 0 15px rgba(255,45,117,0)}}
 .success-message h2{font-size:1.8rem;margin-bottom:.8rem}
 .success-message p{color:var(--text-muted);font-size:1rem;margin-bottom:.5rem}
 
@@ -92,8 +94,8 @@ textarea{resize:vertical;min-height:100px}
 .error-banner.show{display:block}
 
 /* FOOTER */
-footer{text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(139,92,246,.1);margin-top:auto}
-footer .brand-footer{color:var(--gold);font-family:var(--font-head);margin-bottom:.6rem;font-size:.95rem}
+footer{text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(255,45,117,.1);margin-top:auto}
+footer .brand-footer{color:var(--pink);font-family:var(--font-head);margin-bottom:.6rem;font-size:.95rem}
 footer .disclaimer{color:var(--text-muted);font-size:.75rem;max-width:600px;margin:0 auto;opacity:.7}
 
 @media(max-width:600px){
@@ -107,7 +109,7 @@ main{padding:2rem 1rem}
 <body>
 
 <nav>
-  <span class="brand">🪬 Aether Systems</span>
+  <a href="index.html" class="brand"><img src="assets/c2c-logo.png" alt="Chat2Cash Engine" style="height:36px"><span class="brand-text">Chat2Cash</span></a>
 </nav>
 
 <main>
@@ -218,11 +220,11 @@ main{padding:2rem 1rem}
   <!-- SUCCESS -->
   <div class="success-message" id="success-message">
     <div class="success-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#FF2D75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="20 6 9 17 4 12"/>
       </svg>
     </div>
-    <h2>You're All Set! 🪬</h2>
+    <h2>You're All Set! ⚡</h2>
     <p>Your setup info has been submitted successfully.</p>
     <p>We'll review everything before your onboarding call.</p>
     <p style="margin-top:1.5rem"><a href="thankyou.html">← Back to your welcome page</a></p>
@@ -230,8 +232,8 @@ main{padding:2rem 1rem}
 </main>
 
 <footer>
-  <p class="brand-footer">🪬 Aether Systems © 2026</p>
-  <p class="disclaimer">The Chat2Cash Engine is a product of Aether Systems. Not affiliated with OnlyFans, Fansly, or any platform.</p>
+  <p class="brand-footer">⚡ Chat2Cash Engine © 2026</p>
+  <p class="disclaimer">The Chat2Cash Engine is a product of Aether Systems LLC. Not affiliated with OnlyFans, Fansly, or any platform.</p>
 </footer>
 
 <script>

@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Chat2Cash Engine — AI Chat Automation for Creators | Aether Systems</title>
-<meta name="description" content="Stop spending hours in DMs. The Chat2Cash Engine is an AI chat assistant trained on your voice that handles fan messages, sends PPV, and upsells — automatically.">
-<meta property="og:title" content="Chat2Cash Engine — AI Chat Automation for Creators | Aether Systems">
-<meta property="og:description" content="Stop spending hours in DMs. The Chat2Cash Engine is an AI chat assistant trained on your voice that handles fan messages, sends PPV, and upsells — automatically.">
+<title>Chat2Cash Engine - AI Chat Automation for Creators | Aether Systems</title>
+<meta name="description" content="Stop spending hours in DMs. The Chat2Cash Engine is an AI chat assistant trained on your voice that handles fan messages, sends PPV, and upsells - automatically.">
+<meta property="og:title" content="Chat2Cash Engine - AI Chat Automation for Creators | Aether Systems">
+<meta property="og:description" content="Stop spending hours in DMs. The Chat2Cash Engine is an AI chat assistant trained on your voice that handles fan messages, sends PPV, and upsells - automatically.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -140,6 +140,26 @@ footer .links{margin-bottom:.8rem}
 footer .links a{color:var(--text-muted);margin:0 .8rem;font-size:.85rem}
 footer .disclaimer{color:var(--text-muted);font-size:.75rem;max-width:600px;margin:0 auto;opacity:.7}
 
+/* FLOATING CONTACT */
+.contact-fab{position:fixed;bottom:24px;right:24px;z-index:200;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,45,117,.4);transition:transform .2s,box-shadow .3s;animation:fabPulse 3s ease-in-out infinite}
+.contact-fab:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(255,45,117,.5)}
+.contact-fab svg{width:28px;height:28px;fill:white}
+@keyframes fabPulse{0%,100%{box-shadow:0 4px 20px rgba(255,45,117,.3)}50%{box-shadow:0 4px 30px rgba(255,45,117,.5)}}
+.contact-popup{position:fixed;bottom:96px;right:24px;z-index:200;width:320px;background:var(--bg-card);border:1px solid rgba(255,45,117,.2);border-radius:16px;padding:1.5rem;display:none;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.contact-popup.show{display:block;animation:popIn .2s ease}
+@keyframes popIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.popup-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.popup-header h3{font-size:1.1rem;font-family:var(--font-head)}
+.popup-close{background:none;border:none;color:var(--text-muted);font-size:1.3rem;cursor:pointer;padding:0;line-height:1}
+.popup-close:hover{color:var(--text)}
+.contact-option{display:flex;align-items:center;gap:.8rem;padding:.8rem;border-radius:10px;margin-bottom:.5rem;background:rgba(255,45,117,.05);border:1px solid rgba(255,45,117,.1);transition:border-color .2s,background .2s;text-decoration:none;color:var(--text)}
+.contact-option:hover{border-color:rgba(255,45,117,.3);background:rgba(255,45,117,.1);color:var(--text)}
+.contact-option:last-child{margin-bottom:0}
+.contact-option .opt-icon{font-size:1.4rem;flex-shrink:0;width:36px;text-align:center}
+.contact-option .opt-text{font-size:.9rem}
+.contact-option .opt-text strong{display:block;font-size:.95rem;margin-bottom:.1rem}
+.contact-option .opt-text span{color:var(--text-muted);font-size:.82rem}
+
 /* MOBILE */
 @media(max-width:600px){
 section{padding:4rem 1.2rem}
@@ -148,6 +168,8 @@ nav{padding:.8rem 1.2rem}
 .brand{font-size:1rem}
 .pricing-grid{grid-template-columns:1fr}
 .trust-badges{flex-direction:column;gap:1rem}
+.contact-popup{width:calc(100vw - 32px);right:16px;bottom:90px}
+.contact-fab{bottom:16px;right:16px}
 }
 </style>
 </head>
@@ -161,8 +183,8 @@ nav{padding:.8rem 1.2rem}
 
 <!-- HERO -->
 <section id="hero">
-  <h1>Your DMs Are Your Biggest Moneymaker — What If They Ran Themselves?</h1>
-  <p class="sub">The Chat2Cash Engine is an AI-powered chat assistant trained on YOUR voice. It talks to your fans, sends PPV, and closes upsells — so you can stop being chained to your phone and start scaling.</p>
+  <h1>Your DMs Are Your Biggest Moneymaker - What If They Ran Themselves?</h1>
+  <p class="sub">The Chat2Cash Engine is an AI-powered chat assistant trained on YOUR voice. It talks to your fans, sends PPV, and closes upsells - so you can stop being chained to your phone and start scaling.</p>
   <button class="hero-cta" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">See How It Works ↓</button>
   <p class="social-proof">Built for creators who are tired of choosing between chatting and creating.</p>
 </section>
@@ -183,7 +205,7 @@ nav{padding:.8rem 1.2rem}
     </div>
     <div class="card">
       <h3>🎲 Hiring a chatter is a gamble</h3>
-      <p>You've heard the horror stories — agencies that ghost you, chatters who sound nothing like you, or worse, ones that creep out your fans. You need help, but trusting someone with YOUR voice and YOUR subscribers feels risky.</p>
+      <p>You've heard the horror stories - agencies that ghost you, chatters who sound nothing like you, or worse, ones that creep out your fans. You need help, but trusting someone with YOUR voice and YOUR subscribers feels risky.</p>
     </div>
   </div>
 </section>
@@ -193,12 +215,12 @@ nav{padding:.8rem 1.2rem}
 <!-- SOLUTION -->
 <section id="solution">
   <h2 class="section-title">Meet The Chat2Cash Engine</h2>
-  <p class="solution-text">We don't replace you — we clone your voice. The Chat2Cash Engine is an AI chat assistant custom-trained on YOUR tone, YOUR slang, YOUR upsell style. It handles fan messages, sends PPV at the right moments, and keeps subscribers engaged — sounding exactly like you. You stay in control. We just give you your time back.</p>
+  <p class="solution-text">We don't replace you - we clone your voice. The Chat2Cash Engine is an AI chat assistant custom-trained on YOUR tone, YOUR slang, YOUR upsell style. It handles fan messages, sends PPV at the right moments, and keeps subscribers engaged - sounding exactly like you. You stay in control. We just give you your time back.</p>
   <div class="feature-grid">
     <div class="feature">
       <div class="icon">🎙️</div>
       <h3>Trained On Your Voice</h3>
-      <p>We study your past messages, your tone, your personality. The AI doesn't sound like a robot — it sounds like YOU on your best day.</p>
+      <p>We study your past messages, your tone, your personality. The AI doesn't sound like a robot - it sounds like YOU on your best day.</p>
     </div>
     <div class="feature">
       <div class="icon">💰</div>
@@ -222,7 +244,7 @@ nav{padding:.8rem 1.2rem}
     <div class="play-icon">▶</div>
     <p>Demo Video Coming Soon</p>
   </div>
-  <p class="demo-caption">This is what your DMs could look like — on autopilot.</p>
+  <p class="demo-caption">This is what your DMs could look like - on autopilot.</p>
 </section>
 
 <div class="section-divider"></div>
@@ -244,7 +266,7 @@ nav{padding:.8rem 1.2rem}
 
 <!-- PRICING -->
 <section id="pricing">
-  <h2 class="section-title">Beta Pricing — Lock It In Before We Raise Rates</h2>
+  <h2 class="section-title">Beta Pricing - Lock It In Before We Raise Rates</h2>
   <p class="section-subtitle">You're joining our founding beta group. Hands-on onboarding, direct access to the founder, and locked-in pricing for life.</p>
   <div class="pricing-grid">
     <!-- Deposit -->
@@ -296,7 +318,7 @@ nav{padding:.8rem 1.2rem}
   </div>
   <div class="faq-item">
     <button class="faq-q" aria-expanded="false">How long until it's set up?</button>
-    <div class="faq-a"><p>Most creators are live within 7–10 days of signing up. We handle everything during onboarding.</p></div>
+    <div class="faq-a"><p>Most creators are live within 7-10 days of signing up. We handle everything during onboarding.</p></div>
   </div>
   <div class="faq-item">
     <button class="faq-q" aria-expanded="false">Do you need my login?</button>
@@ -304,11 +326,11 @@ nav{padding:.8rem 1.2rem}
   </div>
   <div class="faq-item">
     <button class="faq-q" aria-expanded="false">What's the difference between the two pricing options?</button>
-    <div class="faq-a"><p>The $97 deposit secures your spot — you pay the remaining $500 at your onboarding call ($597 total). Or pay $497 upfront and save $100. Either way, the $300/mo subscription starts 30 days after your first payment.</p></div>
+    <div class="faq-a"><p>The $97 deposit secures your spot - you pay the remaining $500 at your onboarding call ($597 total). Or pay $497 upfront and save $100. Either way, the $300/mo subscription starts 30 days after your first payment.</p></div>
   </div>
   <div class="faq-item">
     <button class="faq-q" aria-expanded="false">Is the deposit refundable?</button>
-    <div class="faq-a"><p>The $97 deposit is non-refundable — it covers your spot in the beta and the initial setup work. The monthly subscription can be cancelled anytime.</p></div>
+    <div class="faq-a"><p>The $97 deposit is non-refundable - it covers your spot in the beta and the initial setup work. The monthly subscription can be cancelled anytime.</p></div>
   </div>
 </section>
 
@@ -319,12 +341,35 @@ nav{padding:.8rem 1.2rem}
   <h2>Stop Trading Hours for DMs</h2>
   <p class="sub">Your fans are waiting. Your content is waiting. Your life is waiting. Let the Chat2Cash Engine handle the grind.</p>
   <div class="cta-buttons">
-    <button class="btn-ghost" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Lock In My Spot — $97</button>
-    <button class="btn-solid" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Get Started — $497</button>
+    <button class="btn-ghost" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Lock In My Spot - $97</button>
+    <button class="btn-solid" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Get Started - $497</button>
   </div>
-  <p class="contact-info">Questions? Email <a href="mailto:support@elevatedwealth.org">support@elevatedwealth.org</a></p>
-  <p class="contact-info">💬 <a href="mailto:support@elevatedwealth.org">Message us</a> — we'd love to chat before you commit</p>
+  <p class="contact-info">Questions? Email <a href="mailto:support@chat2cash.com">support@chat2cash.com</a></p>
+  <p class="contact-info">💬 <a href="#" onclick="document.getElementById('contact-popup').classList.add('show');return false;">Message us</a> — we’d love to chat before you commit</p>
 </section>
+
+<!-- FLOATING CONTACT -->
+<button class="contact-fab" id="contact-fab" aria-label="Contact us">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+</button>
+<div class="contact-popup" id="contact-popup">
+  <div class="popup-header">
+    <h3>💬 Got Questions?</h3>
+    <button class="popup-close" id="popup-close">✕</button>
+  </div>
+  <a href="https://t.me/REPLACE_USERNAME" target="_blank" class="contact-option">
+    <div class="opt-icon">✈️</div>
+    <div class="opt-text"><strong>Telegram</strong><span>Fastest response — DM us directly</span></div>
+  </a>
+  <a href="mailto:support@chat2cash.com" class="contact-option">
+    <div class="opt-icon">📧</div>
+    <div class="opt-text"><strong>Email</strong><span>support@chat2cash.com</span></div>
+  </a>
+  <a href="/onboarding" target="_blank" class="contact-option">
+    <div class="opt-icon">📅</div>
+    <div class="opt-text"><strong>Book a Call</strong><span>15 min — no commitment</span></div>
+  </a>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -361,7 +406,7 @@ function initPayPal(){
     style:{layout:'vertical',color:'black',shape:'pill',label:'pay',height:45},
     createOrder:function(data,actions){
       return actions.order.create({
-        purchase_units:[{description:'Chat2Cash Engine — Beta Deposit',amount:{value:'97.00',currency_code:'USD'}}]
+        purchase_units:[{description:'Chat2Cash Engine - Beta Deposit',amount:{value:'97.00',currency_code:'USD'}}]
       });
     },
     onApprove:function(data,actions){
@@ -369,7 +414,7 @@ function initPayPal(){
         window.location.href='thankyou.html?plan=deposit';
       });
     },
-    onError:function(err){console.error('PayPal Error:',err);alert('Payment error. Please try again or contact support@elevatedwealth.org');}
+    onError:function(err){console.error('PayPal Error:',err);alert('Payment error. Please try again or contact support@chat2cash.com');}
   }).render('#paypal-deposit');
 
   // $497 Full
@@ -385,10 +430,23 @@ function initPayPal(){
         window.location.href='thankyou.html?plan=full';
       });
     },
-    onError:function(err){console.error('PayPal Error:',err);alert('Payment error. Please try again or contact support@elevatedwealth.org');}
+    onError:function(err){console.error('PayPal Error:',err);alert('Payment error. Please try again or contact support@chat2cash.com');}
   }).render('#paypal-full');
 }
 initPayPal();
+
+// Contact popup
+document.getElementById('contact-fab').addEventListener('click',function(){
+  document.getElementById('contact-popup').classList.toggle('show');
+});
+document.getElementById('popup-close').addEventListener('click',function(){
+  document.getElementById('contact-popup').classList.remove('show');
+});
+document.addEventListener('click',function(e){
+  const popup=document.getElementById('contact-popup');
+  const fab=document.getElementById('contact-fab');
+  if(!popup.contains(e.target)&&!fab.contains(e.target)){popup.classList.remove('show');}
+});
 </script>
 </body>
 </html>

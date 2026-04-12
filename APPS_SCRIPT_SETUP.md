@@ -1,43 +1,25 @@
-# Google Apps Script Setup — Chat2Cash Intake Form
+# Google Apps Script — Chat2Cash Intake Form Backend
 
-## Steps (takes ~2 minutes)
+## ⚠️ Important Notes
+- This script lives in the personal Google account tied to Sami.rae24@icloud.com (NOT the Arcane Results Workspace)
+- Sheet ID: 1qzGTUN_GNIM1PSw0jR86c7oSA2Jj-ET7o3uXRxrs3B4
+- Deploy as: Web app | Execute as: Me | Who has access: Anyone
 
-1. Open your Google Sheet: https://docs.google.com/spreadsheets/d/1DP8vnhQXbhMs2d1e2HevDahHP298j1xQcRiAz_xsy6c/edit
-2. Go to **Extensions → Apps Script**
-3. Delete any existing code in the editor
-4. Paste the entire script below
-5. Click **Deploy → New deployment**
-6. Type: **Web app**
-7. Execute as: **Me**
-8. Who has access: **Anyone**
-9. Click **Deploy**
-10. Copy the Web App URL it gives you
-11. Send that URL to Athena — she'll wire it into the intake form
+## Script (paste this in full, replacing ALL existing code)
 
-## The Script
-
-```javascript
+```
 function doPost(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data = JSON.parse(e.postData.contents);
     
-    // Add headers if sheet is empty
     if (sheet.getLastRow() === 0) {
       sheet.appendRow([
-        'Timestamp',
-        'Creator Name',
-        'Email',
-        'Platform',
-        'Monthly Subscriber Count',
-        'Monthly DM Revenue',
-        'Hours Per Day Chatting',
-        'Chat Style Description',
-        'Common Phrases/Slang',
-        'PPV Strategy',
-        'Biggest Challenge',
-        'Anything Else',
-        'Plan Type'
+        'Timestamp','Creator Name','Email','Telegram',
+        'Platforms','Platform (Other)','Subscribers','DM Revenue','Hours/Day Chatting',
+        'Chat Style','Common Phrases','Do NOT Say','Training Data Available',
+        'Content Menu / Prices','Offer Trigger','Offer Message','Payment Flow','Delivery Flow',
+        'Biggest Challenge','Anything Else','Plan Type'
       ]);
     }
     
@@ -45,13 +27,21 @@ function doPost(e) {
       new Date().toISOString(),
       data.creatorName || '',
       data.email || '',
-      data.platform || '',
+      data.telegram || '',
+      data.platforms || '',
+      data.platformOther || '',
       data.subscriberCount || '',
       data.dmRevenue || '',
       data.hoursPerDay || '',
       data.chatStyle || '',
       data.commonPhrases || '',
-      data.ppvStrategy || '',
+      data.doNotSay || '',
+      data.trainingData || '',
+      data.contentMenu || '',
+      data.offerTrigger || '',
+      data.offerMessage || '',
+      data.paymentFlow || '',
+      data.deliveryFlow || '',
       data.biggestChallenge || '',
       data.anythingElse || '',
       data.planType || ''
@@ -74,3 +64,8 @@ function doGet(e) {
     .setMimeType(ContentService.MimeType.JSON);
 }
 ```
+
+## After pasting
+1. Save (Ctrl+S)
+2. Deploy → Manage deployments → Edit pencil → New version → Deploy
+3. Copy new URL and update setup-form.html APPS_SCRIPT_URL constant

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Creator Setup Form — Chat2Cash Engine | Aether Systems</title>
+<title>Creator Setup Form — Chat2Cash Engine</title>
 <meta name="description" content="Tell us about your content style so we can train the Chat2Cash Engine on your voice.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,54 +20,49 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
 h1,h2,h3{font-family:var(--font-head);font-weight:700;line-height:1.2}
 a{color:var(--pink);text-decoration:none}
 a:hover{color:var(--lavender)}
-
-body::before{
-content:'';position:fixed;inset:0;z-index:-1;
-background:radial-gradient(1.5px 1.5px at 20% 30%,rgba(255,45,117,.12),transparent),
-radial-gradient(1px 1px at 70% 60%,rgba(106,0,255,.1),transparent),
-radial-gradient(1.5px 1.5px at 50% 80%,rgba(255,45,117,.06),transparent);
-background-size:300px 300px,250px 250px,350px 350px;
-animation:bgDrift 60s linear infinite;
-}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(1.5px 1.5px at 20% 30%,rgba(255,45,117,.12),transparent),radial-gradient(1px 1px at 70% 60%,rgba(106,0,255,.1),transparent),radial-gradient(1.5px 1.5px at 50% 80%,rgba(255,45,117,.06),transparent);background-size:300px 300px,250px 250px,350px 350px;animation:bgDrift 60s linear infinite;}
 @keyframes bgDrift{to{background-position:300px 300px,250px -250px,-350px 350px}}
 
 /* NAV */
 nav{display:flex;justify-content:center;align-items:center;padding:1.2rem 2rem;background:rgba(10,10,15,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-.brand{display:flex;align-items:center;gap:.5rem}
-.brand img{height:36px;width:auto}
-.brand-text{font-family:var(--font-head);color:var(--pink);font-size:1rem;font-weight:700}
+.brand{display:flex;align-items:center;justify-content:center}
+.brand img{height:52px;width:auto}
 
 /* MAIN */
-main{flex:1;max-width:700px;margin:0 auto;padding:3rem 1.5rem;width:100%}
+main{flex:1;max-width:720px;margin:0 auto;padding:3rem 1.5rem;width:100%}
 .form-header{text-align:center;margin-bottom:2.5rem}
 .form-header h1{font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:.8rem;background:linear-gradient(135deg,var(--text),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .form-header p{color:var(--text-muted);font-size:1rem}
 
-/* FORM */
+/* FORM SECTIONS */
 .form-section{background:var(--bg-card);border:1px solid rgba(255,45,117,.12);border-radius:16px;padding:2rem;margin-bottom:1.5rem}
 .form-section h2{font-size:1.15rem;color:var(--pink);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
 .form-section h2 span{font-size:1.3rem}
-
 .field{margin-bottom:1.3rem}
 .field:last-child{margin-bottom:0}
 label{display:block;font-weight:500;font-size:.95rem;margin-bottom:.4rem;color:var(--text)}
 label .required{color:var(--gold);margin-left:.2rem}
 .field-hint{font-size:.82rem;color:var(--text-muted);margin-bottom:.5rem}
 
-input[type="text"],input[type="email"],input[type="number"],select,textarea{
-width:100%;background:var(--input-bg);border:1px solid var(--input-border);border-radius:10px;
-padding:.75rem 1rem;color:var(--text);font-family:var(--font-body);font-size:.95rem;
-transition:border-color .3s,box-shadow .3s;outline:none;
-}
-input:focus,select:focus,textarea:focus{border-color:var(--input-focus);box-shadow:0 0 12px rgba(255,45,117,.15)}
+/* INPUTS */
+input[type="text"],input[type="email"],textarea{width:100%;background:var(--input-bg);border:1px solid var(--input-border);border-radius:10px;padding:.75rem 1rem;color:var(--text);font-family:var(--font-body);font-size:.95rem;transition:border-color .3s,box-shadow .3s;outline:none;}
+input:focus,textarea:focus{border-color:var(--input-focus);box-shadow:0 0 12px rgba(255,45,117,.15)}
 input::placeholder,textarea::placeholder{color:rgba(160,160,176,.5)}
-select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a0a0b0' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
-select option{background:var(--bg-card);color:var(--text)}
 textarea{resize:vertical;min-height:100px}
 
-/* RADIO GROUP */
+/* CHECKBOXES */
+.checkbox-group{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:.8rem}
+.checkbox-option{display:flex;align-items:center;gap:.4rem}
+.checkbox-option input[type="checkbox"]{display:none}
+.checkbox-option label{display:flex;align-items:center;justify-content:center;padding:.55rem 1rem;border:1px solid var(--input-border);border-radius:8px;cursor:pointer;font-size:.9rem;transition:all .2s;background:var(--input-bg);white-space:nowrap}
+.checkbox-option input:checked+label{border-color:var(--pink);background:rgba(255,45,117,.1);color:var(--pink)}
+.checkbox-option label:hover{border-color:rgba(255,45,117,.35)}
+.other-input{display:none;margin-top:.7rem}
+.other-input.show{display:block}
+
+/* RADIO */
 .radio-group{display:flex;flex-wrap:wrap;gap:.8rem}
-.radio-option{flex:1;min-width:120px}
+.radio-option{flex:1;min-width:100px}
 .radio-option input[type="radio"]{display:none}
 .radio-option label{display:flex;align-items:center;justify-content:center;padding:.65rem 1rem;border:1px solid var(--input-border);border-radius:8px;cursor:pointer;font-size:.9rem;transition:all .2s;text-align:center;background:var(--input-bg)}
 .radio-option input:checked+label{border-color:var(--pink);background:rgba(255,45,117,.1);color:var(--pink)}
@@ -80,7 +75,7 @@ textarea{resize:vertical;min-height:100px}
 .submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
 .submit-note{color:var(--text-muted);font-size:.85rem;margin-top:.8rem}
 
-/* SUCCESS STATE */
+/* SUCCESS */
 .success-message{display:none;text-align:center;padding:4rem 2rem}
 .success-message.show{display:block}
 .success-icon{width:70px;height:70px;border-radius:50%;background:rgba(255,45,117,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;animation:checkPulse 2s ease-in-out infinite}
@@ -95,35 +90,36 @@ textarea{resize:vertical;min-height:100px}
 
 /* FOOTER */
 footer{text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(255,45,117,.1);margin-top:auto}
-footer .brand-footer{color:var(--pink);font-family:var(--font-head);margin-bottom:.6rem;font-size:.95rem}
+footer .brand-footer{color:var(--pink);font-family:var(--font-head);margin-bottom:.4rem;font-size:.95rem}
 footer .disclaimer{color:var(--text-muted);font-size:.75rem;max-width:600px;margin:0 auto;opacity:.7}
 
 @media(max-width:600px){
 main{padding:2rem 1rem}
 .form-section{padding:1.5rem}
-.radio-group{flex-direction:column}
-.radio-option{min-width:100%}
+.radio-group{flex-wrap:wrap}
+.radio-option{min-width:calc(50% - .4rem)}
+.checkbox-group{flex-direction:column}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="brand"><img src="assets/c2c-logo.png" alt="Chat2Cash Engine" style="height:36px"><span class="brand-text">Chat2Cash</span></a>
+  <a href="index.html" class="brand"><img src="assets/c2c-logo.png" alt="Chat2Cash Engine"></a>
 </nav>
 
 <main>
-  <!-- FORM -->
   <div id="form-container">
     <div class="form-header">
       <h1>Creator Setup Form 📋</h1>
       <p>Tell us about your content style, your fans, and how you chat. This helps us train the AI on YOUR voice before our onboarding call.</p>
     </div>
 
-    <div class="error-banner" id="error-banner">Something went wrong. Please try again or email support@chat2cash.com</div>
+    <div class="error-banner" id="error-banner">Something went wrong. Please try again or email <a href="mailto:support@chat2cash.com">support@chat2cash.com</a></div>
 
     <form id="intake-form" novalidate>
-      <!-- SECTION 1: BASICS -->
+
+      <!-- SECTION 1: ABOUT YOU -->
       <div class="form-section">
         <h2><span>👤</span> About You</h2>
         <div class="field">
@@ -136,18 +132,27 @@ main{padding:2rem 1rem}
           <input type="email" name="email" placeholder="your@email.com" required>
         </div>
         <div class="field">
-          <label>Primary Platform <span class="required">*</span></label>
-          <select name="platform" required>
-            <option value="" disabled selected>Select your main platform</option>
-            <option value="OnlyFans">OnlyFans</option>
-            <option value="Fansly">Fansly</option>
-            <option value="Both">Both (OnlyFans + Fansly)</option>
-            <option value="Other">Other</option>
-          </select>
+          <label>Telegram Username</label>
+          <p class="field-hint">So we can reach you directly — fastest way to communicate</p>
+          <input type="text" name="telegram" placeholder="@yourusername">
+        </div>
+        <div class="field">
+          <label>Platforms You Use <span class="required">*</span></label>
+          <p class="field-hint">Select all that apply</p>
+          <div class="checkbox-group">
+            <div class="checkbox-option"><input type="checkbox" id="plat-of" name="platforms" value="OnlyFans"><label for="plat-of">OnlyFans</label></div>
+            <div class="checkbox-option"><input type="checkbox" id="plat-fa" name="platforms" value="Fansly"><label for="plat-fa">Fansly</label></div>
+            <div class="checkbox-option"><input type="checkbox" id="plat-pp" name="platforms" value="Patreon"><label for="plat-pp">Patreon</label></div>
+            <div class="checkbox-option"><input type="checkbox" id="plat-mv" name="platforms" value="ManyVids"><label for="plat-mv">ManyVids</label></div>
+            <div class="checkbox-option"><input type="checkbox" id="plat-other" name="platforms" value="Other"><label for="plat-other">Other</label></div>
+          </div>
+          <div class="other-input" id="platform-other-wrap">
+            <input type="text" name="platformOther" placeholder="Which platform(s)?">
+          </div>
         </div>
       </div>
 
-      <!-- SECTION 2: NUMBERS -->
+      <!-- SECTION 2: YOUR NUMBERS -->
       <div class="form-section">
         <h2><span>📊</span> Your Numbers</h2>
         <div class="field">
@@ -157,14 +162,13 @@ main{padding:2rem 1rem}
         <div class="field">
           <label>Estimated Monthly DM Revenue</label>
           <p class="field-hint">PPV + tips from DMs — rough estimate is fine</p>
-          <select name="dmRevenue">
-            <option value="" disabled selected>Select range</option>
-            <option value="Under $1,000">Under $1,000</option>
-            <option value="$1,000 - $5,000">$1,000 – $5,000</option>
-            <option value="$5,000 - $15,000">$5,000 – $15,000</option>
-            <option value="$15,000 - $50,000">$15,000 – $50,000</option>
-            <option value="$50,000+">$50,000+</option>
-          </select>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="dmRevenue" id="r1" value="Under $1,000"><label for="r1">Under $1k</label></div>
+            <div class="radio-option"><input type="radio" name="dmRevenue" id="r2" value="$1,000-$5,000"><label for="r2">$1k–$5k</label></div>
+            <div class="radio-option"><input type="radio" name="dmRevenue" id="r3" value="$5,000-$15,000"><label for="r3">$5k–$15k</label></div>
+            <div class="radio-option"><input type="radio" name="dmRevenue" id="r4" value="$15,000-$50,000"><label for="r4">$15k–$50k</label></div>
+            <div class="radio-option"><input type="radio" name="dmRevenue" id="r5" value="$50,000+"><label for="r5">$50k+</label></div>
+          </div>
         </div>
         <div class="field">
           <label>Hours Per Day Spent Chatting</label>
@@ -191,13 +195,49 @@ main{padding:2rem 1rem}
           <textarea name="commonPhrases" placeholder="e.g. 'hey babe', 'you're so sweet', 'I made this just for you...'"></textarea>
         </div>
         <div class="field">
-          <label>How do you typically send PPV / upsell in DMs?</label>
-          <p class="field-hint">Walk us through your usual approach when you're trying to close a sale</p>
-          <textarea name="ppvStrategy" placeholder="e.g. 'I tease with a preview pic, then send the full set as PPV for $15-25...'"></textarea>
+          <label>Things you DON'T do or say in DMs</label>
+          <p class="field-hint">Hard limits, topics you avoid, phrases that feel off-brand — we need these to protect your voice</p>
+          <textarea name="doNotSay" placeholder="e.g. 'I never talk about my personal life', 'I don't do certain content types', 'I never use the word...'"></textarea>
+        </div>
+        <div class="field">
+          <label>📂 Chat History / Screen Recordings (Optional but powerful)</label>
+          <p class="field-hint">If you can export your message history or record a screen capture of you chatting, this gives us the most accurate training data. We'll share how to do this on your onboarding call. Leave a note here if you're able to provide this.</p>
+          <textarea name="trainingData" placeholder="e.g. 'Yes, I can export my OnlyFans messages' or 'I can record a screen video of me chatting'"></textarea>
         </div>
       </div>
 
-      <!-- SECTION 4: GOALS -->
+      <!-- SECTION 4: YOUR OFFERS -->
+      <div class="form-section">
+        <h2><span>💰</span> Your Offers &amp; Pricing</h2>
+        <p class="field-hint" style="margin-bottom:1.2rem;font-size:.9rem">This section helps us understand your revenue model so the AI knows exactly what to sell and how to sell it. Be as specific as you can — even rough numbers help.</p>
+        <div class="field">
+          <label>Your PPV / Content Menu</label>
+          <p class="field-hint">What do you sell? List your typical offers and price points</p>
+          <textarea name="contentMenu" placeholder="e.g. Custom pics $20, video sets $30-50, custom videos $75+, sexting sessions $1/min..."></textarea>
+        </div>
+        <div class="field">
+          <label>What typically triggers an offer in DMs?</label>
+          <p class="field-hint">What signals do you look for before sending a sales message?</p>
+          <textarea name="offerTrigger" placeholder="e.g. 'When a fan says they're bored', 'After they tip me', 'When they ask what I've been doing'..."></textarea>
+        </div>
+        <div class="field">
+          <label>What do you typically say when making an offer?</label>
+          <p class="field-hint">Give us your go-to opener or sales message — word for word if you can</p>
+          <textarea name="offerMessage" placeholder="e.g. 'Hey, I just made something I think you'd really love...'"></textarea>
+        </div>
+        <div class="field">
+          <label>How do fans pay and receive content?</label>
+          <p class="field-hint">Tips, PPV unlocks, platform wallet — how does the transaction work on your platform?</p>
+          <textarea name="paymentFlow" placeholder="e.g. 'I send it as a locked PPV message at $25', 'They tip me first and I send a custom'..."></textarea>
+        </div>
+        <div class="field">
+          <label>When and how do you deliver?</label>
+          <p class="field-hint">Timing, follow-up messages, delivery format</p>
+          <textarea name="deliveryFlow" placeholder="e.g. 'Immediately after they unlock', 'I send a thank you and ask if they want more'..."></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 5: GOALS -->
       <div class="form-section">
         <h2><span>🎯</span> Goals &amp; Challenges</h2>
         <div class="field">
@@ -206,7 +246,7 @@ main{padding:2rem 1rem}
         </div>
         <div class="field">
           <label>Anything else we should know?</label>
-          <textarea name="anythingElse" placeholder="Boundaries, specific fan types, things you never say, etc."></textarea>
+          <textarea name="anythingElse" placeholder="Fan types, account history, special circumstances, anything else relevant..."></textarea>
         </div>
       </div>
 
@@ -233,87 +273,87 @@ main{padding:2rem 1rem}
 
 <footer>
   <p class="brand-footer">⚡ Chat2Cash Engine © 2026</p>
-  <p class="disclaimer">The Chat2Cash Engine is a product of Aether Systems LLC. Not affiliated with OnlyFans, Fansly, or any platform.</p>
+  <p class="disclaimer">A product of Arcane Results LLC. Not affiliated with OnlyFans, Fansly, or any platform.</p>
 </footer>
 
 <script>
-// ============================================
-// REPLACE THIS URL after deploying Apps Script
-// ============================================
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzB_9R1nHaxgjfc7hTB_8ifO-AXcf9F7al1nFExhvmSaAzYEmVt3j-unwFHxP8W3xjh/exec';
+
+// Show "Other" platform input
+document.getElementById('plat-other').addEventListener('change', function() {
+  document.getElementById('platform-other-wrap').classList.toggle('show', this.checked);
+});
 
 const form = document.getElementById('intake-form');
 const submitBtn = document.getElementById('submit-btn');
 const errorBanner = document.getElementById('error-banner');
 const formContainer = document.getElementById('form-container');
 const successMessage = document.getElementById('success-message');
-
-// Get plan type from URL params (passed from thankyou.html)
 const urlParams = new URLSearchParams(window.location.search);
 const planType = urlParams.get('plan') || 'unknown';
 
 form.addEventListener('submit', async function(e) {
   e.preventDefault();
-  
-  // Validate required fields
   const required = form.querySelectorAll('[required]');
   let valid = true;
   required.forEach(field => {
-    if (!field.value.trim()) {
-      field.style.borderColor = 'rgba(220,50,50,.5)';
-      valid = false;
-    } else {
-      field.style.borderColor = '';
-    }
+    if (!field.value.trim()) { field.style.borderColor = 'rgba(220,50,50,.5)'; valid = false; }
+    else { field.style.borderColor = ''; }
   });
-  if (!valid) return;
-  
-  // Disable button
+  // Check at least one platform
+  const platforms = [...form.querySelectorAll('input[name="platforms"]:checked')].map(cb => cb.value);
+  if (platforms.length === 0) { valid = false; }
+  if (!valid) { errorBanner.textContent = 'Please fill in all required fields and select at least one platform.'; errorBanner.classList.add('show'); return; }
+
   submitBtn.disabled = true;
   submitBtn.textContent = 'Submitting...';
   errorBanner.classList.remove('show');
-  
-  // Collect data
+
   const formData = new FormData(form);
   const data = {
     creatorName: formData.get('creatorName'),
     email: formData.get('email'),
-    platform: formData.get('platform'),
+    telegram: formData.get('telegram'),
+    platforms: platforms.join(', '),
+    platformOther: formData.get('platformOther') || '',
     subscriberCount: formData.get('subscriberCount'),
-    dmRevenue: formData.get('dmRevenue'),
+    dmRevenue: formData.get('dmRevenue') || '',
     hoursPerDay: formData.get('hoursPerDay') || '',
     chatStyle: formData.get('chatStyle'),
     commonPhrases: formData.get('commonPhrases'),
-    ppvStrategy: formData.get('ppvStrategy'),
+    doNotSay: formData.get('doNotSay'),
+    trainingData: formData.get('trainingData'),
+    contentMenu: formData.get('contentMenu'),
+    offerTrigger: formData.get('offerTrigger'),
+    offerMessage: formData.get('offerMessage'),
+    paymentFlow: formData.get('paymentFlow'),
+    deliveryFlow: formData.get('deliveryFlow'),
     biggestChallenge: formData.get('biggestChallenge'),
     anythingElse: formData.get('anythingElse'),
     planType: planType
   };
-  
+
   try {
-    const response = await fetch(APPS_SCRIPT_URL, {
+    await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
-    
-    // no-cors means we can't read the response, but if it didn't throw, it sent
     formContainer.style.display = 'none';
     successMessage.classList.add('show');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
   } catch (err) {
     console.error('Submit error:', err);
+    errorBanner.textContent = 'Something went wrong. Please try again or email support@chat2cash.com';
     errorBanner.classList.add('show');
     submitBtn.disabled = false;
     submitBtn.textContent = 'Submit My Setup Info';
   }
 });
 
-// Clear error styling on input
-form.querySelectorAll('input,select,textarea').forEach(el => {
-  el.addEventListener('input', () => { el.style.borderColor = ''; });
+form.querySelectorAll('input,textarea').forEach(el => {
+  el.addEventListener('input', () => { el.style.borderColor = ''; errorBanner.classList.remove('show'); });
 });
 </script>
 </body>

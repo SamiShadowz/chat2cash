@@ -31,10 +31,9 @@ animation:bgDrift 60s linear infinite;
 @keyframes bgDrift{to{background-position:300px 300px,250px -250px,-350px 350px}}
 
 /* NAV */
-nav{display:flex;justify-content:center;align-items:center;padding:1.2rem 2rem;background:rgba(10,10,15,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-.brand{display:flex;align-items:center;gap:.5rem}
-.brand img{height:36px;width:auto}
-.brand-text{font-family:var(--font-head);color:var(--pink);font-size:1rem;font-weight:700}
+nav{display:flex;justify-content:center;align-items:center;padding:2.5rem 2rem 1rem;background:transparent}
+.brand{display:flex;align-items:center;justify-content:center}
+.brand img{height:140px;width:auto;filter:drop-shadow(0 0 30px rgba(255,45,117,.35))}
 
 /* MAIN */
 main{flex:1;max-width:900px;margin:0 auto;padding:4rem 1.5rem;text-align:center}
@@ -79,7 +78,7 @@ main{padding:3rem 1.2rem}
 <body>
 
 <nav>
-  <a href="index.html" class="brand"><img src="assets/c2c-logo.png" alt="Chat2Cash Engine" style="height:36px"><span class="brand-text">Chat2Cash</span></a>
+  <a href="/" class="brand"><img src="/assets/c2c-logo.png" alt="Chat2Cash Engine"></a>
 </nav>
 
 <main>
